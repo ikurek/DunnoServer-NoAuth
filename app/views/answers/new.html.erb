@@ -1,5 +1,11 @@
-<h1>New Answer</h1>
-
-<%= render 'form', answer: @answer %>
-
-<%= link_to 'Back', answers_path %>
+<%= link_to "< Wróc do pytania", question_path(@question) %>
+<hr>
+<h1>Odpowiadasz na pytanie:</h1>
+<h3><%= @question.title %></h3>
+<hr>
+<%= simple_form_for [@question, @answer] do |f| %>
+<%= f.input :author, :label => "Autor", required: true %>
+<%= f.input :body, :label => "Odpowiedź", required: true %>
+<%= f.input :question_id, as: :hidden %>
+<%= f.button :submit, "Dodaj odpowiedź", class: "btn btn-success" %>
+<% end %>

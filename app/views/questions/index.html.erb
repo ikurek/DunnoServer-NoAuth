@@ -1,31 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Questions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.author %></td>
-        <td><%= question.title %></td>
-        <td><%= question.body %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Question', new_question_path %>
+<h1>Pytania</h1>
+<%= link_to "Dodaj pytanie", new_question_path, class: "btn btn-primary" %>
+<hr>
+<% @questions.each do |question| %>
+  <div class="card my-2" style="">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align:left;float:left;"><%= question.title %></h5>
+      <h6 class="card-title" style="text-align:right;float:right;"> <%= question.author %> </h4>
+      <p class="card-text" style="clear:both;"><%= question.body %></p>
+      <%= link_to "Przejdź do strony pytania", question_path(question), class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

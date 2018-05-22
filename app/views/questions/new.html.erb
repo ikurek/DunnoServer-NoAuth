@@ -1,5 +1,8 @@
-<h1>New Question</h1>
-
-<%= render 'form', question: @question %>
-
-<%= link_to 'Back', questions_path %>
+<h1>Nowe pytanie:</h1>
+<hr>
+<%= simple_form_for @question do |f| %>
+  <%= f.input :author, :label => "Autor", required: true%>
+  <%= f.input :title, :label => "Tytuł", required: true %>
+  <%= f.input :body, :label => "Treść", required: true %>
+  <%= f.button :submit, "Dodaj pytanie", class: "btn btn-success"%>
+<% end %>
