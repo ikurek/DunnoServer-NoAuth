@@ -1,5 +1,5 @@
 {
-  "name": "DunnoServeur",
+  "name": "DunnoServer-NoAuth",
   "private": true,
   "dependencies": {}
 }
